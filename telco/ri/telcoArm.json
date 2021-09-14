@@ -600,7 +600,7 @@
             "telcoMgmtGroup": "[uri(deployment().properties.templateLink.uri, 'industrySpecific/telcoMgmtGroup.json')]"
         },
         "deploymentNames": {
-            "eslzArm": "ESLZ-Core",
+            "azureCore": "Industry-Core",
             "telcoIndustry": "Telco-industry"
         }
     },
@@ -608,7 +608,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
-            "name": "[variables('deploymentNames').eslzArm]",
+            "name": "[variables('deploymentNames').azureCore]",
             "location": "[deployment().location]",
             "properties": {
                 "mode": "Incremental",
@@ -866,7 +866,7 @@
             "location": "[deployment().location]",
             "name": "[variables('deploymentNames').telcoIndustry]",
             "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments', variables('deploymentNames').eslzArm)]"
+                "[resourceId('Microsoft.Resources/deployments', variables('deploymentNames').azureCore)]"
             ],
             "properties": {
                 "mode": "Incremental",
